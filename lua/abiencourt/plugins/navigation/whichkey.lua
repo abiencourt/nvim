@@ -255,21 +255,6 @@ return {
 			["[g"] = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Previous Git Hunk" },
 		}, blank_opts)
 
-		-- Hop manual keymap register
-		wk.register({
-			f = { "<cmd>HopChar1CurrentLineAC<cr>", "Hop Current Line After" },
-			F = { "<cmd>HopChar1CurrentLineBC<cr>", "Hop Current Line Before" },
-		}, blank_opts)
-
-		wk.register({
-			h = { "<cmd>HopChar1AC<cr>", "Hop After" },
-			H = { "<cmd>HopChar1BC<cr>", "Hop Before" },
-		}, leader_opts)
-
-		wk.register({
-			h = { "<cmd>HopChar2MW<cr>", "Hop Anywhere" },
-		}, leader2_opts)
-
 		-- LSP
 		wk.register({
 			l = {
