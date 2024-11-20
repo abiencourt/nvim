@@ -1,6 +1,27 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	event = "BufReadPost",
+	keys = {
+		{ "<leader>g", group = "Git Tools" },
+		{
+			"<leader>gb",
+			"<cmd>Gitsigns toggle_current_line_blame<cr>",
+			"Gitsigns Blame",
+		},
+		{
+			"]g",
+			function()
+				require("gitsigns").nav_hunk("last")
+			end,
+			"Next Git Hunk",
+		},
+		{
+			"[g",
+			function()
+				require("gitsigns").nav_hunk("prev")
+			end,
+			"Previous Git Hunk",
+		},
+	},
 	opts = {
 		signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 		numhl = false, -- Toggle with `:Gitsigns toggle_numhl`

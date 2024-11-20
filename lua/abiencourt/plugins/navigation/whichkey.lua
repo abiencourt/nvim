@@ -241,19 +241,11 @@ return {
 			g = {
 				name = "Git Tools", -- optional name
 				F = { "<cmd>Telescope git_files<cr>", "Telescope Git Files" },
-				f = { "<cmd>DiffviewFileHistory --base=LOCAL %<cr>", "Diffview File History" },
-				p = { "<cmd>DiffviewOpen origin/HEAD<cr>", "Diffview Project Origin" },
 				c = { "<cmd>Telescope git_commits<cr>", "Telescope Git Commits" },
 				g = { "<cmd>Telescope git_submodules<cr>", "LazyGit" },
-				b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Gitsigns Blame" },
 				d = { "<cmd>Telescope git_diffs diff_commits<cr>", "Diffview" },
 			},
 		}, leader_opts)
-
-		wk.register({
-			["]g"] = { "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next Git Hunk" },
-			["[g"] = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Previous Git Hunk" },
-		}, blank_opts)
 
 		-- LSP
 		wk.register({

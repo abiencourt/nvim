@@ -10,6 +10,19 @@ return {
 	{
 		"sindrets/diffview.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
+		keys = {
+			{ "<leader>g", group = "Git Tools" },
+			{
+				"<leader>gf",
+				"<cmd>DiffviewFileHistory --base=LOCAL %<cr>",
+				desc = "Diffview File History",
+			},
+			{
+				"<leader>gp",
+				"<cmd>DiffviewOpen origin/HEAD<cr>",
+				desc = "Diffview Project Origin",
+			},
+		},
 		config = function()
 			local actions = require("diffview.actions")
 			require("diffview").setup({
