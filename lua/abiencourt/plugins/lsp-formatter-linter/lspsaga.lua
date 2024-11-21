@@ -137,6 +137,112 @@ return {
 					kind = {},
 				},
 			})
+
+			require("which-key").add({
+				{ "<leader>l", group = "LSP" },
+				{
+					"<leader>lc",
+					"<cmd>Lspsaga code_action<cr>",
+					desc = "LSP Code Action",
+				},
+				{
+					"<leader>lf",
+					"<cmd>Lspsaga finder<cr>",
+					desc = "Lspsaga Definition Finder",
+				},
+				{
+					"<leader>lv",
+					function()
+						local config = vim.diagnostic.config()
+						if config and config.virtual_text == true then
+							vim.diagnostic.config({
+								virtual_text = false,
+							})
+						else
+							vim.diagnostic.config({
+								virtual_text = true,
+							})
+						end
+					end,
+					desc = "Toggle LSP Virtual Text",
+				},
+				{
+					"<leader>lo",
+					"<cmd>Lspsaga outline<cr>",
+					desc = "Lspsaga Outline",
+				},
+				{
+					"<leader>lr",
+					"<cmd>Lspsaga rename<cr>",
+					desc = "Lspsaga Rename",
+				},
+				{
+					"<leader>lh",
+					"<cmd>InlayHintToggle<cr>",
+					desc = "Toggle LSP Inlay Hint",
+				},
+			})
+
+			require("which-key").add({
+				{
+					"<leader>ld",
+					group = "diagnostics",
+				},
+				{
+					"<leader>ldl",
+					"<cmd>Lspsaga show_line_diagnostics<cr>",
+					desc = "Lspsaga Show Line Diagnostics",
+				},
+				{
+					"<leader>ldb",
+					"<cmd>Lspsaga show_buf_diagnostics<cr>",
+					desc = "Lspsaga Show Buffer Diagnostics",
+				},
+				{
+					"<leader>ldw",
+					"<cmd>Lspsaga show_workspace_diagnostics<cr>",
+					desc = "Lspsaga Show Workspace Diagnostics",
+				},
+			})
+
+			require("which-key").add({
+				{ "g", group = "Lspsaga Definition" },
+				{
+					"gd",
+					"<cmd>Lspsaga goto_definition<cr>",
+					desc = "Lspsaga Goto Definition",
+				},
+				{
+					"gD",
+					"<cmd>Lspsaga peek_definition<cr>",
+					desc = "Lspsaga Peek Definition",
+				},
+				{
+					"gt",
+					"<cmd>Lspsaga goto_type_definition<cr>",
+					desc = "Lspsaga Goto Type Definition",
+				},
+				{
+					"gT",
+					"<cmd>Lspsaga peek_type_definition<cr>",
+					desc = "Lspsaga Peek Type Definition",
+				},
+				{
+					"K",
+					"<cmd>Lspsaga hover_doc<cr>",
+					desc = "Lspsaga Hover Doc",
+				},
+				{
+					"[d",
+					"<cmd>Lspsaga diagnostic_jump_prev<cr>",
+					desc = "Lspsaga Diagnostic Jump Prev",
+				},
+				{
+					"]d",
+					"<cmd>Lspsaga diagnostic_jump_next<cr>",
+					desc = "Lspsaga Diagnostic Jump Next",
+				},
+			})
 		end,
 	},
 }

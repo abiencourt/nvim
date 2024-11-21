@@ -38,15 +38,6 @@ return {
 			nowait = false,
 		}
 
-		local leader2_opts = {
-			mode = "n",
-			prefix = "<Leader><Leader>",
-			buffer = nil,
-			silent = true,
-			noremap = true,
-			nowait = false,
-		}
-
 		local blank_opts = {
 			mode = "n",
 			prefix = "",
@@ -246,51 +237,6 @@ return {
 				d = { "<cmd>Telescope git_diffs diff_commits<cr>", "Diffview" },
 			},
 		}, leader_opts)
-
-		-- LSP
-		wk.register({
-			l = {
-				name = "LSP",
-				c = { "<cmd>Lspsaga code_action<cr>", "Lspsaga Code Action" },
-				f = { "<cmd>Lspsaga finder<cr>", "Lspsaga Definition Finder" },
-				v = {
-					function()
-						local config = vim.diagnostic.config()
-						if config.virtual_text == true then
-							vim.diagnostic.config({
-								virtual_text = false,
-							})
-						else
-							vim.diagnostic.config({
-								virtual_text = true,
-							})
-						end
-					end,
-					"Toggle LSP Virtual Text",
-				},
-				o = { "<cmd>Lspsaga outline<cr>", "Lspsaga Outline" },
-				r = { "<cmd>Lspsaga rename<cr>", "Lspsaga Rename" },
-				h = { "<cmd>InlayHintToggle<cr>", "Toggle LSP Inlay Hint" },
-				d = {
-					name = "Diagnostics",
-					l = { "<cmd>Lspsaga show_line_diagnostics<cr>", "Lspsaga Show Line Diagnostics" },
-					b = { "<cmd>Lspsaga show_buf_diagnostics<cr>", "Lspsaga Show Buffer Diagnostics" },
-					w = { "<cmd>Lspsaga show_workspace_diagnostics<cr>", "Lspsaga Show Workspace Diagnostics" },
-				},
-			},
-		}, leader_opts)
-
-		wk.register({
-			g = {
-				d = { "<cmd>Lspsaga goto_definition<cr>", "Lspsaga Go to Definition" },
-				D = { "<cmd>Lspsaga peek_definition<cr>", "Lspsaga Peek Definition" },
-				t = { "<cmd>Lspsaga goto_type_definition<cr>", "Lspsaga Go To Type Definition" },
-				T = { "<cmd>Lspsaga peek_type_definition<cr>", "Lspsaga Peek Type Definition" },
-			},
-			K = { "<cmd>Lspsaga hover_doc<cr>", "Lspsaga Hover Doc" },
-			["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Lspsaga Diagnostic Jump Prev" },
-			["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Lspsaga Diagnostic Jump Next" },
-		}, blank_opts)
 
 		-- Crates.nvim
 		wk.register({
