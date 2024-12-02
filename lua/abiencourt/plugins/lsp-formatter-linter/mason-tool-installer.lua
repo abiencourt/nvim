@@ -16,6 +16,7 @@ return {
 			"bash-language-server",
 			"rust-analyzer",
 			"hyprls",
+			"pyright",
 
 			-- Formatters
 			"stylua",
@@ -38,10 +39,13 @@ return {
 			"yamllint",
 			"jsonlint",
 			"eslint_d",
+			"mypy",
+			"ruff",
 			"shellcheck", -- used by bash-language-server, no config required in nvim-lint
 
 			-- DAP
 			"js-debug-adapter",
+			"debugpy",
 		},
 	},
 }
