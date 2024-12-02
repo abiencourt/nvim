@@ -19,30 +19,56 @@ if not status then
 	return
 end
 
-local lazy_defaults = {
-	defaults = {
-		lazy = false,
-	},
-	checker = {
-		-- automatically check for plugin updates
-		enabled = true,
-		concurrency = nil, ---@type number? set to 1 to check for updates very slowly
-		notify = true, -- get a notification when new updates are found
-		frequency = 3600, -- check for updates every hour
-		check_pinned = false, -- check for pinned packages that can't be updated
-	},
-	ui = {
-		border = "rounded",
-	},
-}
+local lazy_defaults
+local lazy_imports
 
-lazy.setup({
-	{ import = "abiencourt.plugins" },
-	{ import = "abiencourt.plugins.git" },
-	{ import = "abiencourt.plugins.lsp-formatter-linter" },
-	{ import = "abiencourt.plugins.navigation" },
-	{ import = "abiencourt.plugins.terminal" },
-	{ import = "abiencourt.plugins.theme" },
-	{ import = "abiencourt.plugins.typing" },
-	{ import = "abiencourt.plugins.language-specific" },
-}, lazy_defaults)
+if vim.g.vscode then
+	require("abiencourt.vscode.keymaps")
+
+	lazy_defaults = {
+		defaults = {
+			lazy = false,
+		},
+		checker = {
+			enabled = false, -- automatically check for plugin updates
+			notify = false, -- get a notification when new updates are found
+			check_pinned = false, -- check for pinned packages that can't be updated
+		},
+		change_detection = {
+			enabled = false,
+		},
+	}
+
+	lazy_imports = {
+		import = "abiencourt.vscode.plugins",
+	}
+else
+	lazy_defaults = {
+		defaults = {
+			lazy = false,
+		},
+		checker = {
+			enabled = true, -- automatically check for plugin updates
+			concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+			notify = true, -- get a notification when new updates are found
+			frequency = 3600, -- check for updates every hour
+			check_pinned = false, -- check for pinned packages that can't be updated
+		},
+		ui = {
+			border = "rounded",
+		},
+	}
+
+	lazy_imports = {
+		{ import = "abiencourt.plugins" },
+		{ import = "abiencourt.plugins.git" },
+		{ import = "abiencourt.plugins.language-specific" },
+		{ import = "abiencourt.plugins.lsp-formatter-linter" },
+		{ import = "abiencourt.plugins.navigation" },
+		{ import = "abiencourt.plugins.terminal" },
+		{ import = "abiencourt.plugins.theme" },
+		{ import = "abiencourt.plugins.typing" },
+	}
+end
+
+lazy.setup(lazy_imports, lazy_defaults)
