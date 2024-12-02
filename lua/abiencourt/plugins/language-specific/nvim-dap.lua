@@ -16,8 +16,29 @@ return {
 					},
 				},
 			}
+
+			local debugPyAdapter = {
+				type = "executable",
+				command = require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python",
+				args = {
+					"-m",
+					"debugpy.adapter",
+				},
+			}
+
 			require("dap").adapters["pwa-node"] = jsDebugAdapter
 			require("dap").adapters["pwa-chrome"] = jsDebugAdapter
+			require("dap").adapters["python"] = debugPyAdapter
+
+			require("dap").configurations["python"] = {
+				{
+					name = "Launch file",
+					type = "python",
+					request = "launch",
+					program = "${file}",
+					cwd = "${workspaceFolder}",
+				},
+			}
 
 			-- see https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md
 			for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do

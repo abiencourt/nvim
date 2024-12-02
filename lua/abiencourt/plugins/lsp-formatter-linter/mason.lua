@@ -193,6 +193,13 @@ return {
 					},
 				})
 			end,
+
+			-- Python
+			["pyright"] = function()
+				lspconfig.pyright.setup({
+					capabilities = lsp_capabilities, -- Needs to be added manually for each LSP
+				})
+			end,
 		})
 	end,
 }
