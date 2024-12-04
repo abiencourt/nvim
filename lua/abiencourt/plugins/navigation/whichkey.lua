@@ -189,32 +189,6 @@ return {
 
 		-- Telescope
 		wk.register({
-			bb = { "<cmd>Telescope scope buffers initial_mode=normal<cr>", "All Buffers" },
-			n = {
-				name = "Node Packages",
-				n = { "<cmd>Telescope node_modules list<cr>", "List Node Modules" },
-				N = { "<cmd>Telescope package_info<cr>", "Package Info" },
-				i = { "<cmd>Telescope import<cr>", "Package import" },
-			},
-			f = {
-				name = "Telescope",
-				i = { "<cmd>IconPickerYank<cr>", "Icons Picker" },
-				e = { "<cmd>Telescope env<cr>", "List Environment Variables" },
-				a = { "<cmd>Telescope lazy<cr>", "List Lazy plugins" },
-				c = { "<cmd>Telescope neoclip<cr>", "List Clipboard" },
-				f = { "<cmd>Telescope find_files hidden=true<cr>", "Find Files" },
-				h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
-				k = { "<cmd>Telescope keymaps<cr>", "List Keymaps" },
-				l = { "<cmd>Telescope live_grep custom_hidden=true<cr>", "Live Grep (inc. hidden, exc. .git)" },
-				ll = { "<cmd>Telescope live_grep_args<cr>", "Live Grep Args" },
-				s = { "<cmd>Telescope spell_suggest<cr>", "Spell Suggest" },
-				u = { "<cmd>Telescope undo<cr>", "Visualize Undo Tree" },
-				z = { "<cmd>Telescope zoxide list<cr>", "List z" },
-				["?"] = { "<cmd>Telescope find_pickers<cr>", "List Telescope Pickers" },
-			},
-		}, leader_opts)
-
-		wk.register({
 			fl = {
 				"\"zy<cmd>exec 'Telescope live_grep custom_hidden=true default_text=' . escape(@z, ' ')<cr>",
 				"Live Grep Current Selection (inc. hidden, exc. .git)",
@@ -226,17 +200,6 @@ return {
 		}, leader_opts_visual)
 
 		wk.register({ ["<C-p>"] = { "<cmd>Telescope keymaps<cr>", "List Keymaps" } }, blank_opts)
-
-		-- Git
-		wk.register({
-			g = {
-				name = "Git Tools", -- optional name
-				F = { "<cmd>Telescope git_files<cr>", "Telescope Git Files" },
-				c = { "<cmd>Telescope git_commits<cr>", "Telescope Git Commits" },
-				g = { "<cmd>Telescope git_submodules<cr>", "LazyGit" },
-				d = { "<cmd>Telescope git_diffs diff_commits<cr>", "Diffview" },
-			},
-		}, leader_opts)
 
 		-- Crates.nvim
 		wk.register({

@@ -18,10 +18,21 @@ return {
 			"piersolenski/telescope-import.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "tiagovla/scope.nvim", opts = {} },
-			{ "ziontee113/icon-picker.nvim", opts = { disable_legacy_commands = true } },
+			{
+				"ziontee113/icon-picker.nvim",
+				opts = { disable_legacy_commands = true },
+				keys = {
+					{
+						"<leader>fi",
+						"<cmd>IconPickerYank<cr>",
+						desc = "Icon Picker",
+					},
+				},
+			},
 		},
 		config = function()
 			local actions = require("telescope.actions")
+			local wk = require("which-key")
 
 			require("telescope").setup({
 				defaults = {
@@ -120,21 +131,165 @@ return {
 				},
 			})
 			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("env")
-			require("telescope").load_extension("zoxide")
-			require("telescope").load_extension("find_pickers")
-			require("telescope").load_extension("undo")
-			require("telescope").load_extension("neoclip")
 			require("telescope").load_extension("ui-select")
-			require("telescope").load_extension("git_submodules")
 			require("telescope").load_extension("node_modules")
-			require("telescope").load_extension("lazy")
 			require("telescope").load_extension("git_diffs")
 			require("telescope").load_extension("noice")
-			require("telescope").load_extension("scope")
 			require("telescope").load_extension("package_info")
 			require("telescope").load_extension("live_grep_args")
 			require("telescope").load_extension("import")
+
+			-- Telescope
+			wk.add({
+				{
+					"<leader>f",
+					group = "Telescope",
+				},
+				{
+					"<leader>ff",
+					"<cmd>Telescope find_files hidden=true<cr>",
+					desc = "Find Files",
+				},
+				{
+					"<leader>fh",
+					"<cmd>Telescope help_tags<cr>",
+					desc = "Help Tags",
+				},
+				{
+					"<leader>fk",
+					"<cmd>Telescope keymaps<cr>",
+					desc = "Keymaps",
+				},
+				{
+					"<leader>fl",
+					"<cmd>Telescope live_grep custom_hidden=true<cr>",
+					desc = "Live Grep (inc. hidden, exc. .git)",
+				},
+				{
+					"<leader>fll",
+					"<cmd>Telescope live_grep_args<cr>",
+					desc = "Live Grep Args",
+				},
+				{
+					"<leader>fs",
+					"<cmd>Telescope spell_suggest<cr>",
+					desc = "Spell Suggest",
+				},
+			})
+
+			-- lazy
+			require("telescope").load_extension("lazy")
+			wk.add({ {
+				"<leader>fa",
+				"<cmd>Telescope lazy<cr>",
+				desc = "Lazy Plugins",
+			} })
+
+			-- Neoclip
+			require("telescope").load_extension("neoclip")
+			wk.add({ {
+				"<leader>fc",
+				"<cmd>Telescope neoclip<cr>",
+				desc = "Clipboard History",
+			} })
+
+			-- env
+			require("telescope").load_extension("env")
+			wk.add({
+				{
+					"<leader>fe",
+					"<cmd>Telescope env<cr>",
+					desc = "Environment Variables",
+				},
+			})
+
+			-- Undo
+			require("telescope").load_extension("undo")
+			wk.add({ {
+				"<leader>fu",
+				"<cmd>Telescope undo<cr>",
+				desc = "Undo Tree",
+			} })
+
+			-- Zoxide
+			require("telescope").load_extension("zoxide")
+			wk.add({
+				{
+					"<leader>fz",
+					"<cmd>Telescope zoxide list<cr>",
+					desc = "Zoxide List",
+				},
+			})
+
+			-- Scope
+			require("telescope").load_extension("scope")
+			wk.add({
+				{
+					"<leader>bb",
+					"<cmd>Telescope scope buffers initial_mode=normal<cr>",
+					desc = "All Buffers",
+				},
+			})
+
+			-- Node Packages
+			wk.add({
+				{
+					{
+						"<leader>n",
+						group = "Node Packages",
+					},
+					{
+						"<leader>nn",
+						"<cmd>Telescope node_modules list<cr>",
+						desc = "List Node Modules",
+					},
+					{
+						"<leader>nN",
+						"<cmd>Telescope package_info<cr>",
+						desc = "Package Info",
+					},
+					{
+						"<leader>ni",
+						"<cmd>Telescope import<cr>",
+						desc = "Package import",
+					},
+				},
+			})
+
+			-- Find pickers
+			require("telescope").load_extension("find_pickers")
+			wk.add({
+				{
+					"<leader>f?",
+					"<cmd>Telescope find_pickers<cr>",
+					desc = "Find Pickers",
+				},
+			})
+
+			-- Git
+			require("telescope").load_extension("git_submodules")
+			wk.add({
+				{
+					"<leader>gF",
+					"<cmd>Telescope git_files<cr>",
+					desc = "Telescope Git Files",
+				},
+				{
+					"<leader>gc",
+					"<cmd>Telescope git_commits<cr>",
+					desc = "Telescope Git Commits",
+				},
+				{
+					"<leader>gg",
+					"<cmd>Telescope git_submodules<cr>",
+					desc = "LazyGit",
+				},
+				{
+					"<leader>gd",
+					"<cmd>Telescope git_diffs diff_commits<cr>",
+					desc = "Diffview",
+				},
+			})
 		end,
 	},
 }
