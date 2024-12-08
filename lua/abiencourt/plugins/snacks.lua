@@ -5,6 +5,22 @@ return {
 	opts = {
 		words = { enabled = false },
 		gitbrowse = { enabled = false },
+		toggle = {
+			enabled = true,
+			map = vim.keymap.set, -- keymap.set function to use
+			which_key = true, -- integrate with which-key to show enabled/disabled icons and colors
+			notify = true, -- show a notification when toggling
+			-- icons for enabled/disabled states
+			icon = {
+				enabled = " ",
+				disabled = " ",
+			},
+			-- colors for enabled/disabled states
+			color = {
+				enabled = "green",
+				disabled = "yellow",
+			},
+		},
 		bigfile = {
 			enabled = true,
 			notify = true, -- show notification when big file detected
@@ -104,4 +120,23 @@ return {
 			},
 		},
 	},
+	init = function()
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "VeryLazy",
+			callback = function()
+				-- Setup some globals for debugging (lazy-loaded)
+				_G.dd = function(...)
+					Snacks.debug.inspect(...)
+				end
+				_G.bt = function()
+					Snacks.debug.backtrace()
+				end
+				vim.print = _G.dd -- Override print to use snacks for `:=` command
+
+				-- Create some toggle mappings
+				Snacks.toggle.option("spell", { name = "Spell Check" }):map("<leader>z")
+				Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>N")
+			end,
+		})
+	end,
 }

@@ -50,29 +50,13 @@ return {
 		-- ####################################################################
 		-- Default keymaps
 
-		-- Toggle Search Highlight
+		-- Search Highlight
 		wk.add({
 			{
 				"<leader>/",
 				"<cmd>:noh<cr>",
 				desc = "Clear Search Highlight",
 			},
-			{
-				"<leader>N",
-				function()
-					vim.o.relativenumber = not vim.o.relativenumber
-				end,
-				desc = "Toggle Relative Numbers",
-			},
-		})
-
-		-- Spelling
-		wk.add({
-			"<leader>z",
-			function()
-				vim.o.spell = not vim.o.spell
-			end,
-			desc = "Toggle Spell Check",
 		})
 
 		-- Yank/paste

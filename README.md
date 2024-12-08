@@ -62,3 +62,4 @@ As [nvm](https://github.com/nvm-sh/nvm) is used to switch versions of Node.js, s
 - [ ] lspsaga does float terminal : <https://nvimdev.github.io/lspsaga/floaterm/>
 - [ ] lspsaga hover cannot open links
 - [ ] Should we keep using noice if we use snacks notifier
+- [ ] Finish using snacks toggle
