@@ -138,5 +138,10 @@ return {
 				Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>N")
 			end,
 		})
+		vim.api.nvim_create_autocmd("TabNewEntered", {
+			callback = function()
+				Snacks.dashboard({ buf = 0, win = 0 })
+			end,
+		})
 	end,
 }
