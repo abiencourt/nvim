@@ -7,29 +7,7 @@ return {
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 			{ "s1n7ax/nvim-window-picker", version = "v1.*" }, -- only needed if you want to use the commands with "_with_window_picker" suffix
-			{
-				"3rd/image.nvim",
-				config = function()
-					package.path = package.path
-						.. ";"
-						.. vim.fn.expand("$HOME")
-						.. "/.luarocks/share/lua/5.1/?/init.lua"
-					package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
-					require("image").setup({
-						backend = "kitty",
-						kitty_method = "normal",
-						integrations = {
-							markdown = {
-								enabled = true,
-								clear_in_insert_mode = true,
-								download_remote_images = true,
-								only_render_image_at_cursor = false,
-								filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
-							},
-						},
-					})
-				end,
-			},
+			"3rd/image.nvim",
 		},
 		config = function()
 			local icons = require("abiencourt.icons")
