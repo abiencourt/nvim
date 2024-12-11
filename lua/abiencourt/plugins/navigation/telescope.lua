@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"LinArcX/telescope-env.nvim",
@@ -161,14 +161,31 @@ return {
 					desc = "Keymaps",
 				},
 				{
+					"<C-p>",
+					"<cmd>Telescope keymaps<cr>",
+					desc = "Keymaps",
+				},
+				{
 					"<leader>fl",
 					"<cmd>Telescope live_grep custom_hidden=true<cr>",
 					desc = "Live Grep (inc. hidden, exc. .git)",
 				},
 				{
+					"<leader>fl",
+					mode = { "v" },
+					"\"zy<cmd>exec 'Telescope live_grep custom_hidden=true default_text=' . escape(@z, ' ')<cr>",
+					desc = "Live Grep Current Selection (inc. hidden, exc. .git)",
+				},
+				{
 					"<leader>fll",
 					"<cmd>Telescope live_grep_args<cr>",
 					desc = "Live Grep Args",
+				},
+				{
+					"<leader>fll",
+					mode = { "v" },
+					"\"zy<cmd>exec 'Telescope live_grep_args default_text=' . escape(@z, ' ')<cr>",
+					desc = "Live Grep Args Current Selection",
 				},
 				{
 					"<leader>fs",

@@ -29,24 +29,6 @@ return {
 			nowait = false, -- use `nowait` when creating keymaps
 		}
 
-		local leader_opts_visual = {
-			mode = "v",
-			prefix = "<Leader>",
-			buffer = nil,
-			silent = true,
-			noremap = true,
-			nowait = false,
-		}
-
-		local blank_opts = {
-			mode = "n",
-			prefix = "",
-			buffer = nil,
-			silent = true,
-			noremap = true,
-			nowait = false,
-		}
-
 		-- ####################################################################
 		-- Default keymaps
 
@@ -170,42 +152,6 @@ return {
 
 		-- ####################################################################
 		-- Plugins
-
-		-- Telescope
-		wk.register({
-			fl = {
-				"\"zy<cmd>exec 'Telescope live_grep custom_hidden=true default_text=' . escape(@z, ' ')<cr>",
-				"Live Grep Current Selection (inc. hidden, exc. .git)",
-			},
-			fll = {
-				"\"zy<cmd>exec 'Telescope live_grep_args default_text=' . escape(@z, ' ')<cr>",
-				"Live Grep Args Current Selection",
-			},
-		}, leader_opts_visual)
-
-		wk.register({ ["<C-p>"] = { "<cmd>Telescope keymaps<cr>", "List Keymaps" } }, blank_opts)
-
-		-- Crates.nvim
-		wk.register({
-			c = {
-				name = "Crates",
-				s = { "<cmd>lua require('crates').toggle()<cr>", "Show Crates virtual lines" },
-				v = { "<cmd>lua require('crates').show_versions_popup()<cr>", "Show Crates versions" },
-				f = { "<cmd>lua require('crates').show_features_popup()<cr>", "Show Crates features" },
-				d = { "<cmd>lua require('crates').show_dependencies_popup()<cr>", "Show Crates dependencies" },
-				u = { "<cmd>lua require('crates').update_crate()<cr>", "Update crate" },
-				a = { "<cmd>lua require('crates').update_all_crates()<cr>", "Update All Crates" },
-				x = {
-					"<cmd>lua require('crates').expand_plain_crate_to_inline_table()<cr>",
-					"Expand Plain Crate To Inline Table",
-				},
-				H = { "<cmd>lua require('crates').open_homepage()<cr>", "Open Crate Homepage" },
-				R = { "<cmd>lua require('crates').open_repository()<cr>", "Open Crate Repository" },
-				D = { "<cmd>lua require('crates').open_documentation()<cr>", "Open Crate Documentation" },
-				C = { "<cmd>lua require('crates').open_crates_io()<cr>", "Open Crates.io" },
-				i = { "<cmd>PackageInfoInstall<cr>", "Install NPM Package" },
-			},
-		}, leader_opts)
 
 		-- Create groups for plugins using lazy keys
 		wk.add({
