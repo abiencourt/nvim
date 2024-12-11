@@ -207,22 +207,12 @@ return {
 			},
 		}, leader_opts)
 
-		-- Could not add directly into plugin config
+		-- Create groups for plugins using lazy keys
 		wk.add({
 			{ "<leader>m", group = "Markdown" },
 			{
 				"<leader><leader>f",
 				group = "Fun",
-			},
-			{
-				"<leader><leader>fr",
-				"<cmd>CellularAutomaton make_it_rain<cr>",
-				desc = "Make It Rain",
-			},
-			{
-				"<leader><leader>fh",
-				"<cmd>HackFollow<cr>",
-				desc = "Hack This File",
 			},
 		})
 
