@@ -42,6 +42,7 @@ return {
 		local lazydocker =
 			Terminal:new({ cmd = "lazydocker", close_on_exit = true, hidden = true, direction = "float" })
 		local serpl = Terminal:new({ cmd = "serpl", close_on_exit = true, hidden = true, direction = "float" })
+		local regect = Terminal:new({ cmd = "regect", close_on_exit = true, hidden = true, direction = "float" })
 
 		-- Custom functions
 		local wk = require("which-key")
@@ -53,6 +54,13 @@ return {
 					serpl:toggle()
 				end,
 				desc = "serpl",
+			},
+			{
+				"<leader>r",
+				function()
+					regect:toggle()
+				end,
+				desc = "regect",
 			},
 			{
 				"<leader>\\d",
