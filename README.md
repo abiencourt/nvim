@@ -4,7 +4,7 @@
 [![Leaderkey](https://dotfyle.com/abiencourt/nvim/badges/leaderkey?style=flat)](https://dotfyle.com/abiencourt/nvim)
 
 [![Last commit](https://img.shields.io/github/last-commit/abiencourt/nvim?style=flat)](https://github.com/abiencourt/nvim/commits/master)
-[![Coding time](https://wakapi.dev/api/badge/abiencourt/interval:any/label:nvim?label=coding%20time)](https://wakapi.dev/)
+[![Coding time over the last 30 days](https://wakapi.dev/api/badge/abiencourt/interval:30_days/label:nvim?label=last%2030d)](https://wakapi.dev/)
 
 ![Neovim Screenshot](./docs/images/neovim_screenshot.png)
 
