@@ -4,7 +4,7 @@ return {
 	event = "BufReadPost",
 	keys = {
 		{
-			"<leader>t",
+			"<leader>T",
 			function()
 				require("treesitter-context").toggle()
 			end,
