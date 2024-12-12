@@ -20,7 +20,7 @@ return {
 
 			-- Formatters
 			"stylua",
-			"beautysh",
+			"shfmt",
 			"markdown-toc",
 			"codespell",
 			"xmlformatter",
