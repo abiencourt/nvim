@@ -5,7 +5,7 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		{ "neovim/nvim-lspconfig", dependencies = { "nvimdev/lspsaga.nvim" } },
+		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
 		"kevinhwang91/nvim-ufo",
 		"b0o/schemastore.nvim",
