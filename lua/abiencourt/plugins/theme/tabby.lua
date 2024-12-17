@@ -8,9 +8,6 @@ return {
 				end,
 			},
 		})
-		vim.cmd([[
-    autocmd DirChanged * lua vim.cmd("TabRename " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~"))
-]])
 
 		require("which-key").add({
 			{

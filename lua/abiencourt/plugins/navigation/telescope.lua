@@ -124,6 +124,7 @@ return {
 								end,
 								after_action = function(selection)
 									print("Directory changed to " .. selection.path)
+									vim.cmd("TabRename " .. vim.fn.fnamemodify(selection.path, ":~"))
 								end,
 							},
 						},
