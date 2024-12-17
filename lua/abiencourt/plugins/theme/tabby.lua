@@ -15,7 +15,17 @@ return {
 				group = "Tabs",
 			},
 			{ "<c-t>r", ":TabRename ", desc = "Rename Tab" },
-			{ "<c-t>n", "<cmd>tabnew<cr>", desc = "New Tab" },
+			{
+				"<c-t>n",
+				function()
+					vim.cmd("tabnew")
+					-- Use vim.schedule to ensure the new tab is fully created before calling Snacks.dashboard
+					vim.schedule(function()
+						Snacks.dashboard({ buf = 0, win = 0 })
+					end)
+				end,
+				desc = "New Tab",
+			},
 			{ "<c-t>x", "<cmd>tabclose<cr>", desc = "Close Tab" },
 			{ "<c-t>l", "<cmd>tabn<cr>", desc = "Go to Right Tab" },
 			{ "<c-t>h", "<cmd>tabp<cr>", desc = "Go to Left Tab" },
