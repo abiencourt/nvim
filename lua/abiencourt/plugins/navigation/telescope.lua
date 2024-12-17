@@ -16,19 +16,9 @@ return {
 			"paopaol/telescope-git-diffs.nvim",
 			"nvim-telescope/telescope-live-grep-args.nvim",
 			"piersolenski/telescope-import.nvim",
+			"nvim-telescope/telescope-symbols.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "tiagovla/scope.nvim", opts = {} },
-			{
-				"ziontee113/icon-picker.nvim",
-				opts = { disable_legacy_commands = true },
-				keys = {
-					{
-						"<leader>fi",
-						"<cmd>IconPickerYank<cr>",
-						desc = "Icon Picker",
-					},
-				},
-			},
 		},
 		config = function()
 			local actions = require("telescope.actions")
@@ -149,6 +139,13 @@ return {
 				{
 					"<leader>ff",
 					"<cmd>Telescope find_files hidden=true<cr>",
+					desc = "Find Files",
+				},
+				{
+					"<leader>fS",
+					function()
+						require("telescope.builtin").symbols({ sources = { "emoji", "kaomoji", "gitmoji" } })
+					end,
 					desc = "Find Files",
 				},
 				{
