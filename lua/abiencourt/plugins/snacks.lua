@@ -49,17 +49,30 @@ return {
 			preset = {
 				keys = {
 					{
-						icon = " ",
-						key = "f",
+						icon = "📂",
+						key = "p",
 						desc = "Find project",
 						action = function()
 							vim.cmd("Neotree position=current")
 							vim.cmd("Telescope zoxide list")
 						end,
 					},
-					{ icon = " ", key = "N", desc = "New File", action = ":ene | startinsert" },
 					{
-						icon = " ",
+						icon = "📝",
+						key = "f",
+						desc = "Find file",
+						action = function()
+							vim.cmd("Telescope find_files hidden=true")
+						end,
+					},
+					{
+						icon = "📑",
+						key = "N",
+						desc = "New File",
+						action = ":ene | startinsert",
+					},
+					{
+						icon = "📦",
 						key = "n",
 						desc = "Neovim",
 						action = function()
@@ -69,13 +82,13 @@ return {
 						end,
 					},
 					{
-						icon = " ",
+						icon = "⌛",
 						key = "r",
 						desc = "Recent Files",
 						action = ":lua Snacks.dashboard.pick('oldfiles')",
 					},
 					{
-						icon = " ",
+						icon = "🔧",
 						key = "d",
 						desc = "Dotfiles",
 						action = function()
@@ -85,7 +98,7 @@ return {
 						end,
 					},
 					{
-						icon = "󰌵 ",
+						icon = "🏠",
 						key = "c",
 						desc = "Chezmoi",
 						action = function()
@@ -95,13 +108,13 @@ return {
 						end,
 					},
 					{
-						icon = "󰒲 ",
+						icon = "💤",
 						key = "l",
 						desc = "Lazy",
 						action = ":Lazy",
 						enabled = package.loaded.lazy ~= nil,
 					},
-					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+					{ icon = "📤", key = "q", desc = "Quit", action = ":qa" },
 				},
 			},
 			sections = {
