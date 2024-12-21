@@ -38,7 +38,6 @@ return {
 			"cfn-lint",
 			"alex",
 			"actionlint",
-			"luacheck",
 			"proselint",
 			"write-good",
 			"yamllint",

@@ -4,6 +4,7 @@ return {
 		lazy = true,
 		opts = function()
 			local tsc = require("treesitter-context")
+			---@module 'snacks'
 			Snacks.toggle({
 				name = "Treesitter Context",
 				get = tsc.enabled,
