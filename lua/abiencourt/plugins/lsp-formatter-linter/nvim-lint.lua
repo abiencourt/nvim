@@ -18,7 +18,6 @@ return {
 			cfn = { "cfn_lint" },
 			yaml = { "yamllint" },
 			json = { "jsonlint" },
-			lua = { "luacheck" },
 		}
 
 		local eslint_langs = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
