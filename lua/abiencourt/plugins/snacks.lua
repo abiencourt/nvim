@@ -2,6 +2,7 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
+	---@type snacks.Config
 	opts = {
 		words = { enabled = false },
 		gitbrowse = { enabled = false },
@@ -133,6 +134,7 @@ return {
 		},
 	},
 	init = function()
+		---@module 'snacks'
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",
 			callback = function()

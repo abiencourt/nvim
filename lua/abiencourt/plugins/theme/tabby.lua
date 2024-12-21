@@ -21,6 +21,7 @@ return {
 					vim.cmd("tabnew")
 					-- Use vim.schedule to ensure the new tab is fully created before calling Snacks.dashboard
 					vim.schedule(function()
+						---@module 'snacks'
 						Snacks.dashboard({ buf = 0, win = 0 })
 					end)
 				end,
