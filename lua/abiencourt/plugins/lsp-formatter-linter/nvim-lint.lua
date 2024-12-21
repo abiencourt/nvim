@@ -3,7 +3,7 @@ return {
 	event = "VeryLazy",
 	keys = {
 		{
-			"<leaader>+",
+			"<leader>+",
 			function()
 				require("lint").try_lint()
 			end,
