@@ -156,6 +156,7 @@ return {
 		-- Create groups for plugins using lazy keys
 		wk.add({
 			{ "<leader>m", group = "Markdown" },
+			{ "<leader>c", group = "Copilot", icon = { icon = "", color = "orange" } },
 			{
 				"<leader><leader>f",
 				group = "Fun",

@@ -107,6 +107,7 @@ return {
 				"dapui_stacks",
 				"dapui_scopes",
 				"dapui_watches",
+				"copilot-chat",
 			},
 		},
 	},
