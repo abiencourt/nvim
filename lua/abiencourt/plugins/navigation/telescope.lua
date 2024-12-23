@@ -55,15 +55,6 @@ return {
 					},
 				},
 				extensions = {
-					git_submodules = {
-						git_cmd = "lazygit",
-						previewer = true,
-						terminal_id = 9,
-						find_subdirectories = {
-							enabled = true,
-							depth = 2,
-						},
-					},
 					-- git_diffs = {
 					-- 	initial_mode = "normal",
 					-- },
@@ -293,11 +284,6 @@ return {
 					"<leader>gc",
 					"<cmd>Telescope git_commits<cr>",
 					desc = "Telescope Git Commits",
-				},
-				{
-					"<leader>gg",
-					"<cmd>Telescope git_submodules<cr>",
-					desc = "LazyGit",
 				},
 				{
 					"<leader>gd",

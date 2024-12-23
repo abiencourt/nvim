@@ -2,11 +2,22 @@ return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
+	keys = {
+
+		{
+			"<leader>gg",
+			function()
+				Snacks.lazygit()
+			end,
+			desc = "Lazygit",
+		},
+	},
 	---@type snacks.Config
 	opts = {
 		words = { enabled = false },
 		gitbrowse = { enabled = false },
 		dim = { enabled = true },
+		lazygit = { enabled = true },
 		toggle = {
 			enabled = true,
 			map = vim.keymap.set, -- keymap.set function to use
