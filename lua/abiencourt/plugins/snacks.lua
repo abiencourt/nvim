@@ -6,6 +6,7 @@ return {
 	opts = {
 		words = { enabled = false },
 		gitbrowse = { enabled = false },
+		dim = { enabled = true },
 		toggle = {
 			enabled = true,
 			map = vim.keymap.set, -- keymap.set function to use
@@ -150,6 +151,7 @@ return {
 				-- Create some toggle mappings
 				Snacks.toggle.option("spell", { name = "Spell Check" }):map("<leader>z")
 				Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>N")
+				Snacks.toggle.dim():map("<leader>d")
 			end,
 		})
 	end,
