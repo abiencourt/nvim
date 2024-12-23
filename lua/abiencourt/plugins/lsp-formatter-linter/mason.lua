@@ -22,11 +22,6 @@ return {
 		-- Auto update schemastore at startup
 		require("lazy").update({ plugins = { "schemastore.nvim" }, show = false })
 
-		vim.api.nvim_create_user_command("InlayHintToggle", function()
-			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
-			vim.cmd([[doautocmd LspAttach]]) -- hacky way to trigger heirline update
-		end, { desc = "Enable/Disable inlay hint on current buffer" })
-
 		-- see https://github.com/rcarriga/nvim-dap-ui/issues/367
 		-- require("neodev").setup({
 		-- 	library = { plugins = { "nvim-dap-ui" }, types = true },

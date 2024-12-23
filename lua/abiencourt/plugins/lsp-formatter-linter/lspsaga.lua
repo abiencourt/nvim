@@ -177,11 +177,6 @@ return {
 					"<cmd>Lspsaga rename<cr>",
 					desc = "Lspsaga Rename",
 				},
-				{
-					"<leader>lh",
-					"<cmd>InlayHintToggle<cr>",
-					desc = "Toggle LSP Inlay Hint",
-				},
 			})
 
 			require("which-key").add({

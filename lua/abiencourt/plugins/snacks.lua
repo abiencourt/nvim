@@ -152,6 +152,7 @@ return {
 				Snacks.toggle.option("spell", { name = "Spell Check" }):map("<leader>z")
 				Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>N")
 				Snacks.toggle.dim():map("<leader>d")
+				Snacks.toggle.inlay_hints():map("<leader>lh")
 			end,
 		})
 	end,
