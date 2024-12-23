@@ -33,6 +33,10 @@ vim.opt.termguicolors = true
 -- Vim updates faster
 vim.opt.updatetime = 250
 
+-- netrw hijack, used with neo-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Automatically change the current directory
 vim.cmd([[autocmd BufEnter * silent! execute 'lcd' getcwd(-1)]])
 
