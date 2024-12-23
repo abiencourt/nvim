@@ -1,7 +1,7 @@
 return {
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^3", -- Recommended
+		version = "^5", -- Recommended
 		ft = { "rust" },
 	},
 	{
@@ -10,7 +10,7 @@ return {
 		tag = "stable",
 		dependencies = "hrsh7th/nvim-cmp",
 		config = function()
-			require("crates").setup()
+			require("crates").setup({})
 			vim.api.nvim_create_autocmd("BufRead", {
 				group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
 				pattern = "Cargo.toml",
