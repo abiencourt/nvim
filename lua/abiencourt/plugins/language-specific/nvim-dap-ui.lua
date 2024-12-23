@@ -6,7 +6,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 		lazy = true,
 		dependencies = "mfussenegger/nvim-dap",
-		opts = {},
+		config = true,
 	},
 	{
 		"rcarriga/nvim-dap-ui",
