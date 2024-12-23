@@ -1,6 +1,29 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
+	lazy = false,
+	keys = {
+		{
+			"<leader>b",
+			"<cmd>Neotree toggle buffers<cr>",
+			desc = "Neotree Buffers",
+		},
+		{
+			"<leader>e",
+			"<cmd>Neotree toggle filesystem<cr>",
+			desc = "Neotree Filesystem",
+		},
+		{
+			"<leader>ge",
+			"<cmd>Neotree toggle git_status<cr>",
+			desc = "Neotree Git",
+		},
+		{
+			"<leader>s",
+			"<cmd>Neotree toggle document_symbols<cr>",
+			desc = "Neotree Symbols",
+		},
+	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -331,29 +354,6 @@ return {
 			-- 		StaticMethod = { icon = "󰠄 ", hl = "Function" },
 			-- 	},
 			-- },
-		})
-
-		require("which-key").add({
-			{
-				"<leader>b",
-				"<cmd>Neotree toggle buffers<cr>",
-				desc = "Neotree Buffers",
-			},
-			{
-				"<leader>e",
-				"<cmd>Neotree toggle filesystem<cr>",
-				desc = "Neotree Filesystem",
-			},
-			{
-				"<leader>ge",
-				"<cmd>Neotree toggle git_status<cr>",
-				desc = "Neotree Git",
-			},
-			{
-				"<leader>s",
-				"<cmd>Neotree toggle document_symbols<cr>",
-				desc = "Neotree Symbols",
-			},
 		})
 	end,
 }
