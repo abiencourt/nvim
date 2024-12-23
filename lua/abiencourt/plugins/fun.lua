@@ -31,6 +31,6 @@ return {
 				desc = "Let It Snow",
 			},
 		},
-		opts = {},
+		config = true,
 	},
 }

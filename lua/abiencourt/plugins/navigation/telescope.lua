@@ -18,7 +18,7 @@ return {
 			"piersolenski/telescope-import.nvim",
 			"nvim-telescope/telescope-symbols.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			{ "tiagovla/scope.nvim", opts = {} },
+			{ "tiagovla/scope.nvim", config = true },
 		},
 		config = function()
 			local actions = require("telescope.actions")

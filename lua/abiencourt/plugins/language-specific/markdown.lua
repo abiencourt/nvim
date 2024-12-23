@@ -32,7 +32,7 @@ return {
 		ft = "markdown",
 		keys = { { "<leader>mf", "<cmd>FeMaco<cr>", desc = "Fenced Code-block" } },
 		dependencies = "nvim-treesitter/nvim-treesitter",
-		opts = {},
+		config = true,
 	},
 	{
 		"OXY2DEV/markview.nvim",
