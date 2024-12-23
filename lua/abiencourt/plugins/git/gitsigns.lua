@@ -12,14 +12,14 @@ return {
 			function()
 				require("gitsigns").nav_hunk("last")
 			end,
-			"Next Git Hunk",
+			desc = "Next Git Hunk",
 		},
 		{
 			"[g",
 			function()
 				require("gitsigns").nav_hunk("prev")
 			end,
-			"Previous Git Hunk",
+			desc = "Previous Git Hunk",
 		},
 	},
 	opts = {
