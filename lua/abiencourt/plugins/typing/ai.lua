@@ -53,45 +53,64 @@ return {
 		end,
 	},
 	{
-		"CopilotC-Nvim/CopilotChat.nvim",
+		"abiencourt/codecompanion.nvim",
 		dependencies = {
-			{ "zbirenbaum/copilot.lua" },
-			{ "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"MunifTanjim/nui.nvim",
 		},
-		build = "make tiktoken", -- Only on MacOS or Linux
 		opts = {
-			model = "claude-3.5-sonnet",
-			mappings = {
-				close = {
-					normal = "q",
-					insert = "<esc>",
+			strategies = {
+				chat = {
+					adapter = "copilot",
+					keymaps = {
+						close = {
+							modes = {
+								n = "<esc>",
+								i = "<esc>",
+							},
+						},
+					},
+				},
+				inline = {
+					adapter = "copilot",
+				},
+			},
+			display = {
+				chat = {
+					window = {
+						position = "right",
+					},
 				},
 			},
 		},
 		keys = {
 			{
-				"<leader>C",
+				"<leader>c",
 				function()
-					require("CopilotChat").toggle()
+					require("codecompanion").toggle()
 				end,
-				desc = "Toggle Copilot Chat",
+				desc = "Toggle Code Companion",
 				mode = { "n", "v" },
 			},
 			{
-				"<leader>cr",
+				"<leader>cf",
 				function()
-					require("CopilotChat").reset()
+					require("codecompanion").actions({})
 				end,
-				desc = "Reset Copilot Chat",
+				desc = "CodeCompanion Actions",
 				mode = { "n", "v" },
 			},
 			{
-				"<leader>fC",
-				function()
-					local actions = require("CopilotChat.actions")
-					require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-				end,
-				desc = "Pick a prompt",
+				"<leader>cn",
+				":CodeCompanionCmd ",
+				desc = "CodeCompanion nvim command",
+				mode = { "n" },
+			},
+			{
+				"<leader>cc",
+				":CodeCompanion ",
+				desc = "CodeCompanion Inline Assistant",
 				mode = { "n", "v" },
 			},
 		},
