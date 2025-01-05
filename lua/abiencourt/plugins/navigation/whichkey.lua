@@ -4,11 +4,6 @@ return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
 	dependencies = {
-		{
-			"echasnovski/mini.icons",
-			version = false,
-			config = true,
-		},
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
@@ -16,18 +11,6 @@ return {
 		vim.o.timeoutlen = 300
 
 		local wk = require("which-key")
-
-		-- Which-key leader config
-		local leader_opts = {
-			mode = "n", -- NORMAL mode
-			-- prefix: use "<Leader>f" for example to map everything related to finding files
-			-- the prefix is prepended to every mapping part of `mappings`
-			prefix = "<Leader>",
-			buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-			silent = true, -- use `silent` when creating keymaps
-			noremap = true, -- use `noremap` when creating keymaps
-			nowait = false, -- use `nowait` when creating keymaps
-		}
 
 		-- ####################################################################
 		-- Default keymaps
