@@ -35,12 +35,17 @@ return {
 		config = true,
 	},
 	{
-		"OXY2DEV/markview.nvim",
-		ft = "markdown",
-		keys = { { "<leader>mv", "<cmd>Markview toggle<cr>", desc = "Toggle Markview" } },
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		ft = { "markdown", "codecompanion" },
+		keys = {
+			{
+				"<leader>mv",
+				function()
+					require("render-markdown").toggle()
+				end,
+				desc = "Toggle Markdown",
+			},
 		},
 	},
 }
