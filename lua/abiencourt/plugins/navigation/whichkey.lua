@@ -96,12 +96,6 @@ return {
 
 		-- Quickfix
 		wk.add({
-			{ "[q", "<cmd>QNext<cr>", desc = "Previous Quickfix" },
-			{ "]q", "<cmd>QPrev<cr>", desc = "Next Quickfix" },
-			{ "<leader>q", group = "Quickfix" },
-			{ "<leader>qq", "<cmd>QFToggle<cr>", desc = "Toggle Quickfix" },
-			{ "<leader>ql", "<cmd>LLToggle<cr>", desc = "Toggle Loclist" },
-			{ "<leader>qd", "<cmd>Reject<cr>", desc = "Remove Item From Quickfix" },
 			{
 				"<leader>qc",
 				":cdo ",
@@ -138,6 +132,7 @@ return {
 
 		-- Create groups for plugins using lazy keys
 		wk.add({
+			{ "<leader>q", group = "Quickfix" },
 			{ "<leader>m", group = "Markdown" },
 			{ "<leader>c", group = "Copilot", icon = { icon = "", color = "orange" } },
 			{

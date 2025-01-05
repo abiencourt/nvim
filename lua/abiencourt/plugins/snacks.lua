@@ -243,6 +243,15 @@ return {
 				Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>N")
 				Snacks.toggle.dim():map("<leader>d")
 				Snacks.toggle.inlay_hints():map("<leader>lh")
+				Snacks.toggle({
+					name = "quickfix window",
+					get = function()
+						return require("quicker").is_open()
+					end,
+					set = function()
+						require("quicker").toggle()
+					end,
+				}):map("<leader>qq")
 			end,
 		})
 	end,
