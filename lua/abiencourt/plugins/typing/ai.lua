@@ -66,8 +66,8 @@ return {
 					keymaps = {
 						close = {
 							modes = {
-								n = "<esc>",
-								i = "<esc>",
+								n = "<A-c>",
+								i = "<A-c>",
 							},
 						},
 					},

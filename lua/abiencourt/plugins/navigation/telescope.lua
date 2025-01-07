@@ -79,7 +79,7 @@ return {
 						-- Mappings for the actions
 						mappings = {
 							open_in_browser = "<C-o>",
-							open_in_file_browser = "<M-b>",
+							open_in_file_browser = "<A-b>",
 							open_in_find_files = "<C-f>",
 							open_in_live_grep = "<C-g>",
 							open_plugins_picker = "<C-b>", -- Works only after having called first another action
