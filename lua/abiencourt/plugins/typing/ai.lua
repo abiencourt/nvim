@@ -3,7 +3,7 @@ return {
 		"Exafunction/codeium.nvim",
 		event = "BufReadPre",
 		keys = { {
-			"<leader>cc",
+			"<leader>cC",
 			"<cmd>Codeium Chat<cr>",
 			desc = "Codeium Chat",
 		} },
