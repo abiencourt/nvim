@@ -89,6 +89,7 @@ return {
 			enable_git_status = true,
 			enable_diagnostics = true,
 			use_default_mappings = false,
+			use_popups_for_input = false,
 			sort_case_insensitive = false, -- used when sorting files and directories in the tree
 			sort_function = nil, -- use a custom function for sorting files and directories in the tree
 			default_component_configs = {
