@@ -137,7 +137,7 @@ return {
 					function()
 						require("telescope.builtin").symbols({ sources = { "emoji", "kaomoji", "gitmoji" } })
 					end,
-					desc = "Find Files",
+					desc = "Find Symbols",
 				},
 				{
 					"<leader>fh",
@@ -232,7 +232,7 @@ return {
 			wk.add({
 				{
 					"<leader>bb",
-					"<cmd>Telescope scope buffers initial_mode=normal<cr>",
+					"<cmd>Telescope scope buffers<cr>",
 					desc = "All Buffers",
 				},
 			})
@@ -240,10 +240,6 @@ return {
 			-- Node Packages
 			wk.add({
 				{
-					{
-						"<leader>n",
-						group = "Node Packages",
-					},
 					{
 						"<leader>nn",
 						"<cmd>Telescope node_modules list<cr>",
