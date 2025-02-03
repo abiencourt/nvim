@@ -8,15 +8,17 @@ return {
 		"saecki/crates.nvim",
 		event = { "BufRead Cargo.toml" },
 		tag = "stable",
-		dependencies = "hrsh7th/nvim-cmp",
 		config = function()
-			require("crates").setup({})
-			vim.api.nvim_create_autocmd("BufRead", {
-				group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
-				pattern = "Cargo.toml",
-				callback = function()
-					require("cmp").setup.buffer({ sources = { { name = "crates" } } })
-				end,
+			require("crates").setup({
+				lsp = {
+					enabled = true,
+					on_attach = function(client, bufnr)
+						-- the same on_attach function as for your other lsp's
+					end,
+					actions = true,
+					completion = true,
+					hover = true,
+				},
 			})
 
 			require("which-key").add({
