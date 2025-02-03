@@ -2,6 +2,7 @@ return {
 	{
 		"Exafunction/codeium.nvim",
 		event = "BufReadPre",
+		enabled = false, -- waiting for https://github.com/Exafunction/codeium.nvim/pull/264
 		keys = { {
 			"<leader>cC",
 			"<cmd>Codeium Chat<cr>",
@@ -15,13 +16,6 @@ return {
 			require("codeium").setup({
 				enable_chat = true,
 			})
-		end,
-	},
-	{
-		"zbirenbaum/copilot-cmp",
-		dependencies = { "zbirenbaum/copilot.lua" },
-		config = function()
-			require("copilot_cmp").setup()
 		end,
 	},
 	{

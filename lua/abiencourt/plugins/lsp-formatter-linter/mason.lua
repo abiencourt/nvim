@@ -6,7 +6,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"neovim/nvim-lspconfig",
-		"hrsh7th/cmp-nvim-lsp",
+		"saghen/blink.cmp",
 		"kevinhwang91/nvim-ufo",
 		"b0o/schemastore.nvim",
 		"stevearc/conform.nvim",
@@ -26,7 +26,7 @@ return {
 		-- Auto update schemastore at startup
 		require("lazy").update({ plugins = { "schemastore.nvim" }, show = false })
 
-		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local lsp_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		-- Add folding capabilities required by ufo.nvim
 		lsp_capabilities.textDocument.foldingRange = {
