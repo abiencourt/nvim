@@ -34,6 +34,7 @@ return {
 							["<C-?>"] = actions.which_key,
 							["<C-c>"] = actions.close,
 							["<tab>"] = actions.toggle_selection,
+							["<C-CR>"] = actions.select_default,
 						},
 						n = {
 							["k"] = actions.move_selection_previous,
