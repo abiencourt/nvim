@@ -31,7 +31,6 @@ return {
 					enabled = false,
 				},
 				filetypes = {
-					yaml = false,
 					markdown = false,
 					help = false,
 					gitcommit = false,
@@ -47,16 +46,77 @@ return {
 		end,
 	},
 	{
-		"abiencourt/codecompanion.nvim",
+		"olimorris/codecompanion.nvim",
+		-- dir = "~/Coding/Personal/codecompanion.nvim/",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"MunifTanjim/nui.nvim",
 		},
 		opts = {
+			adapters = {
+				-- copilot = function()
+				-- 	return require("codecompanion.adapters").extend("copilot", {
+				-- 		schema = {
+				-- 			model = {
+				-- 				default = "claude-3.5-sonnet",
+				-- 			},
+				-- 		},
+				-- 	})
+				-- end,
+				litellm = function()
+					return require("codecompanion.adapters").extend("openai_compatible", {
+						env = {
+							url = "https://litellm.cloud.bncrt.com/v1",
+							api_key = vim.env.LITELLM_API_KEY,
+							chat_url = "/chat/completions",
+						},
+						schema = {
+							model = {
+								default = "bedrock-claude-3-sonnet",
+							},
+						},
+						handlers = {
+							form_parameters = function(self, params, messages)
+								-- Clean messages by extracting only role and content
+								-- This removes extra fields like id, opts, cycle that API doesn't accept
+								local cleaned_messages = {}
+								for _, msg in ipairs(messages) do
+									table.insert(cleaned_messages, {
+										role = msg.role,
+										content = msg.content,
+									})
+								end
+
+								-- Create a copy of parameters to avoid modifying original
+								local parameters = vim.deepcopy(params)
+
+								-- Flatten nested 'options' into top-level parameters
+								-- This ensures all configuration options are at the root level
+								if parameters.options then
+									for k, v in pairs(parameters.options) do
+										parameters[k] = v
+									end
+									parameters.options = nil
+								end
+
+								-- Return a clean parameter object for the API request
+								return {
+									model = parameters.model,
+									messages = cleaned_messages,
+									temperature = parameters.temperature,
+									max_tokens = parameters.max_tokens,
+									top_p = parameters.top_p,
+									top_k = parameters.top_k,
+								}
+							end,
+						},
+					})
+				end,
+			},
 			strategies = {
 				chat = {
-					adapter = "copilot",
+					adapter = "litellm",
 					keymaps = {
 						close = {
 							modes = {
@@ -67,7 +127,7 @@ return {
 					},
 				},
 				inline = {
-					adapter = "copilot",
+					adapter = "litellm",
 				},
 			},
 			display = {
