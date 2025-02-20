@@ -18,6 +18,7 @@ return {
 			{
 				"<c-t>n",
 				function()
+					vim.cmd("TabRename " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~"))
 					vim.cmd("tabnew")
 					-- Use vim.schedule to ensure the new tab is fully created before calling Snacks.dashboard
 					vim.schedule(function()
