@@ -50,6 +50,8 @@ return {
 					"regex",
 					"hyprlang",
 					"git_config",
+					"regex",
+					"bash",
 				},
 				highlight = { enable = true },
 				autotag = { enable = false },
