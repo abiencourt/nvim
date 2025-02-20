@@ -8,6 +8,8 @@ return {
 			"neovim/nvim-lspconfig",
 		},
 		config = function()
+			vim.diagnostic.config({ severity_sort = true }) -- displays the popups
+
 			require("lspsaga").setup({
 				preview = {
 					lines_above = 5,
