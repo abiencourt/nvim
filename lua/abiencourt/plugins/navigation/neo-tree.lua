@@ -242,11 +242,15 @@ return {
 				-- instead of relying on nvim autocmd events.
 				window = {
 					mappings = {
-						["<bs>"] = "navigate_up",
+						["<bs>"] = function()
+							vim.cmd("tcd ..")
+							vim.cmd("TabRename " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~"))
+						end,
 						["."] = function(state)
 							local node = state.tree:get_node()
 							if node.type == "directory" then
 								vim.cmd("tcd " .. node.path)
+								vim.cmd("TabRename " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~"))
 							end
 						end,
 						["H"] = "toggle_hidden",
