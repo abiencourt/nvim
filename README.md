@@ -1,7 +1,8 @@
 # Neovim Config
 
+[![Plugins](https://dotfyle.com/abiencourt/nvim/badges/plugins?style=flat)](https://dotfyle.com/abiencourt/nvim)
+[![Leader Key](https://dotfyle.com/abiencourt/nvim/badges/leaderkey?style=flat)](https://dotfyle.com/abiencourt/nvim)
 [![Plugin Manager](https://dotfyle.com/abiencourt/nvim/badges/plugin-manager?style=flat)](https://dotfyle.com/abiencourt/nvim)
-[![Leaderkey](https://dotfyle.com/abiencourt/nvim/badges/leaderkey?style=flat)](https://dotfyle.com/abiencourt/nvim)
 
 [![Last commit](https://img.shields.io/github/last-commit/abiencourt/nvim?style=flat)](https://github.com/abiencourt/nvim/commits/master)
 [![Coding time over the last 30 days](https://wakapi.dev/api/badge/abiencourt/interval:30_days/label:nvim?label=last%2030d)](https://wakapi.dev/)
@@ -10,7 +11,7 @@
 
 ## Installation
 
-> Install requires Neovim 0.9+.
+> Install requires Neovim 0.10+.
 
 Clone the repository and install the plugins:
 
