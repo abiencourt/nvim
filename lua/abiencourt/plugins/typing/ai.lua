@@ -1,28 +1,47 @@
 return {
 	{
-		"Exafunction/codeium.nvim",
-		event = "BufReadPre",
-		enabled = false, -- waiting for https://github.com/Exafunction/codeium.nvim/pull/264
-		keys = { {
-			"<leader>cC",
-			"<cmd>Codeium Chat<cr>",
-			desc = "Codeium Chat",
-		} },
+		"milanglacier/minuet-ai.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
 		},
 		config = function()
-			require("codeium").setup({
-				enable_chat = true,
+			require("minuet").setup({
+				notify = "debug",
+				provider = "openai_compatible",
+				n_completions = 1,
+				context_window = 512,
+				provider_options = {
+					openai_compatible = {
+						model = "bedrock-claude-3-5-sonnet-v2",
+						end_point = "https://litellm.cloud.bncrt.com/v1/chat/completions",
+						api_key = function()
+							return vim.env.LITELLM_API_KEY
+						end,
+						name = "litellm",
+						stream = true,
+						optional = {
+							stop = nil,
+							max_tokens = 300,
+						},
+					},
+				},
 			})
 		end,
 	},
 	{
-		config = function()
-				},
-			})
-		end,
+		"joshuavial/aider.nvim",
+		keys = {
+			{
+				"<leader>a",
+				"<cmd>AiderOpen<cr>",
+				desc = "Aider",
+			},
+		},
+		opts = {
+			auto_manage_context = true, -- automatically manage buffer context
+			default_bindings = false,
+			debug = false,
+		},
 	},
 	{
 		"olimorris/codecompanion.nvim",
@@ -34,15 +53,15 @@ return {
 		},
 		opts = {
 			adapters = {
-				-- copilot = function()
-				-- 	return require("codecompanion.adapters").extend("copilot", {
-				-- 		schema = {
-				-- 			model = {
-				-- 				default = "claude-3.5-sonnet",
-				-- 			},
-				-- 		},
-				-- 	})
-				-- end,
+				copilot = function()
+					return require("codecompanion.adapters").extend("copilot", {
+						schema = {
+							model = {
+								default = "claude-3.5-sonnet",
+							},
+						},
+					})
+				end,
 				litellm = function()
 					return require("codecompanion.adapters").extend("openai_compatible", {
 						env = {
@@ -52,7 +71,7 @@ return {
 						},
 						schema = {
 							model = {
-								default = "bedrock-claude-3-sonnet",
+								default = "bedrock-claude-3-5-sonnet-v2",
 							},
 						},
 						handlers = {
