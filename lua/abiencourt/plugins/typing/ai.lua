@@ -1,29 +1,14 @@
 return {
 	{
-		"milanglacier/minuet-ai.nvim",
+		"Exafunction/codeium.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
-			require("minuet").setup({
-				notify = "debug",
-				provider = "openai_compatible",
-				n_completions = 1,
-				context_window = 512,
-				provider_options = {
-					openai_compatible = {
-						model = "bedrock-claude-3-5-sonnet-v2",
-						end_point = "https://litellm.cloud.bncrt.com/v1/chat/completions",
-						api_key = function()
-							return vim.env.LITELLM_API_KEY
-						end,
-						name = "litellm",
-						stream = true,
-						optional = {
-							stop = nil,
-							max_tokens = 300,
-						},
-					},
+			require("codeium").setup({
+				enable_cmp_source = false,
+				virtual_text = {
+					enabled = true,
 				},
 			})
 		end,
