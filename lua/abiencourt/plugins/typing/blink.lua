@@ -6,7 +6,6 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"olimorris/codecompanion.nvim",
-			"milanglacier/minuet-ai.nvim",
 		},
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
@@ -40,21 +39,6 @@ return {
 						module = "lazydev.integrations.blink",
 						score_offset = 50,
 					},
-					minuet = {
-						min_keyword_length = 2,
-						name = "minuet",
-						module = "minuet.blink",
-						score_offset = 100,
-						-- transform_items = function(_, items)
-						-- 	local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-						-- 	local kind_idx = #CompletionItemKind + 1
-						-- 	CompletionItemKind[kind_idx] = "Minuet"
-						-- 	for _, item in ipairs(items) do
-						-- 		item.kind = kind_idx
-						-- 	end
-						-- 	return items
-						-- end,
-					},
 				},
 			},
 			completion = {
@@ -80,12 +64,6 @@ return {
 				["<C-k>"] = { "select_prev", "fallback" },
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-CR>"] = { "accept", "fallback" },
-				-- Manually invoke minuet completion.
-				["<A-y>"] = {
-					function(cmp)
-						cmp.show({ providers = { "minuet" } })
-					end,
-				},
 			},
 		},
 		opts_extend = { "sources.default" },
