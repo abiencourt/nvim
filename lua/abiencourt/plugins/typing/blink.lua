@@ -5,7 +5,6 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			"olimorris/codecompanion.nvim",
 		},
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
@@ -13,7 +12,7 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "codecompanion", "lazydev" },
+				default = { "lsp", "path", "snippets", "buffer", "lazydev" },
 				providers = {
 					snippets = {
 						min_keyword_length = 2,
@@ -28,11 +27,6 @@ return {
 					buffer = {
 						min_keyword_length = 5,
 						score_offset = 1,
-					},
-					codecompanion = {
-						name = "codecompanion",
-						module = "codecompanion.providers.completion.blink",
-						enabled = true,
 					},
 					lazydev = {
 						name = "LazyDev",
