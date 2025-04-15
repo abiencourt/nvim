@@ -44,6 +44,11 @@ return {
 				group = "Windows",
 			},
 			{
+				"<C-w>N",
+				"<cmd>split<cr>",
+				desc = "Open New Window horizontally",
+			},
+			{
 				"<C-w>n",
 				"<cmd>vsplit<cr>",
 				desc = "Open New Window vertically",
