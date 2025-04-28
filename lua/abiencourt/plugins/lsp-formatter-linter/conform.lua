@@ -37,6 +37,7 @@ return {
 				markdown = { "markdownlint", "markdown-toc", "prettier", "injected" },
 				xml = { "xmlformat" },
 				rust = { "rustfmt" }, -- Installed manually through brew
+				terraform = { "terraform" },
 				["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- Run on filetypes that don't have a formatter, pseudo formatters from conform.nvim
 				-- Causes issue with Revanista's typos
 				-- ["*"] = { "codespell" }, -- Run on all filetypes
@@ -45,6 +46,9 @@ return {
 				command = require("conform.util").find_executable({
 					"node_modules/.bin/prettier",
 				}, "prettier"),
+			},
+			terraform = {
+				command = "terraform fmt",
 			},
 		}
 

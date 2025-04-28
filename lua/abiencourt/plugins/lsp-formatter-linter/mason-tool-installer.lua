@@ -1,6 +1,5 @@
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	event = "LspAttach",
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
@@ -22,6 +21,7 @@ return {
 			"rust-analyzer",
 			"hyprls",
 			"pyright",
+			"terraform-ls",
 
 			-- Formatters
 			"stylua",
@@ -35,6 +35,7 @@ return {
 
 			-- Linters
 			"markdownlint", -- and formatter
+			"tflint",
 			"cfn-lint",
 			"alex",
 			"actionlint",
