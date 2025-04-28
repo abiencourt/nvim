@@ -10,7 +10,7 @@ return {
 		{
 			"]g",
 			function()
-				require("gitsigns").nav_hunk("last")
+				require("gitsigns").nav_hunk("next")
 			end,
 			desc = "Next Git Hunk",
 		},
