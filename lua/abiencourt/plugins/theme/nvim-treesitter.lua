@@ -23,7 +23,7 @@ return {
 		build = ":TSUpdate",
 		event = "BufReadPost",
 		dependencies = {
-			{ "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = true } },
+			{ "windwp/nvim-ts-autotag", opts = { opts = { enable_close_on_slash = true } } },
 			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function()
