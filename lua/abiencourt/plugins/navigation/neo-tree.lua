@@ -305,6 +305,19 @@ return {
 					},
 				},
 			},
+			git_status = {
+				window = {
+					position = "left",
+					mappings = {
+						["a"] = "git_add_all",
+						["r"] = "git_unstage_file",
+						["<space>"] = {
+							"git_add_file",
+							nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+						},
+					},
+				},
+			},
 			document_symbols = {
 				follow_cursor = true,
 				client_filters = "first",
@@ -326,40 +339,67 @@ return {
 						},
 					},
 				},
-			},
-			git_status = {
 				window = {
-					position = "left",
 					mappings = {
-						["a"] = "git_add_all",
-						["r"] = "git_unstage_file",
-						["<space>"] = {
-							"git_add_file",
-							nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-						},
+						["<cr>"] = "jump_to_symbol",
+						["o"] = "jump_to_symbol",
+						["A"] = "noop", -- also accepts the config.show_path and config.insert_as options.
+						["d"] = "noop",
+						["y"] = "noop",
+						["x"] = "noop",
+						["p"] = "noop",
+						["c"] = "noop",
+						["m"] = "noop",
+						["a"] = "noop",
+						["/"] = "filter",
+						["f"] = "filter_on_submit",
 					},
 				},
+				custom_kinds = {
+					-- define custom kinds here (also remember to add icon and hl group to kinds)
+					-- ccls
+					-- [252] = 'TypeAlias',
+					-- [253] = 'Parameter',
+					-- [254] = 'StaticMethod',
+					-- [255] = 'Macro',
+				},
+				kinds = {
+					Unknown = { icon = "?", hl = "" },
+					Root = { icon = "", hl = "NeoTreeRootName" },
+					File = { icon = "󰈙", hl = "Tag" },
+					Module = { icon = "", hl = "Exception" },
+					Namespace = { icon = "󰌗", hl = "Include" },
+					Package = { icon = "󰏖", hl = "Label" },
+					Class = { icon = "󰌗", hl = "Include" },
+					Method = { icon = "", hl = "Function" },
+					Property = { icon = "󰆧", hl = "@property" },
+					Field = { icon = "", hl = "@field" },
+					Constructor = { icon = "", hl = "@constructor" },
+					Enum = { icon = "󰒻", hl = "@number" },
+					Interface = { icon = "", hl = "Type" },
+					Function = { icon = "󰊕", hl = "Function" },
+					Variable = { icon = "", hl = "@variable" },
+					Constant = { icon = "", hl = "Constant" },
+					String = { icon = "󰀬", hl = "String" },
+					Number = { icon = "󰎠", hl = "Number" },
+					Boolean = { icon = "", hl = "Boolean" },
+					Array = { icon = "󰅪", hl = "Type" },
+					Object = { icon = "󰅩", hl = "Type" },
+					Key = { icon = "󰌋", hl = "" },
+					Null = { icon = "", hl = "Constant" },
+					EnumMember = { icon = "", hl = "Number" },
+					Struct = { icon = "󰌗", hl = "Type" },
+					Event = { icon = "", hl = "Constant" },
+					Operator = { icon = "󰆕", hl = "Operator" },
+					TypeParameter = { icon = "󰊄", hl = "Type" },
+
+					-- ccls
+					-- TypeAlias = { icon = ' ', hl = 'Type' },
+					-- Parameter = { icon = ' ', hl = '@parameter' },
+					-- StaticMethod = { icon = '󰠄 ', hl = 'Function' },
+					-- Macro = { icon = ' ', hl = 'Macro' },
+				},
 			},
-			-- document_symbols = {
-			-- 	kinds = {
-			-- 		File = { icon = "󰈙", hl = "Tag" },
-			-- 		Namespace = { icon = "󰌗", hl = "Include" },
-			-- 		Package = { icon = "󰏖", hl = "Label" },
-			-- 		Class = { icon = "󰌗", hl = "Include" },
-			-- 		Property = { icon = "󰆧", hl = "@property" },
-			-- 		Enum = { icon = "󰒻", hl = "@number" },
-			-- 		Function = { icon = "󰊕", hl = "Function" },
-			-- 		String = { icon = "󰀬", hl = "String" },
-			-- 		Number = { icon = "󰎠", hl = "Number" },
-			-- 		Array = { icon = "󰅪", hl = "Type" },
-			-- 		Object = { icon = "󰅩", hl = "Type" },
-			-- 		Key = { icon = "󰌋", hl = "" },
-			-- 		Struct = { icon = "󰌗", hl = "Type" },
-			-- 		Operator = { icon = "󰆕", hl = "Operator" },
-			-- 		TypeParameter = { icon = "󰊄", hl = "Type" },
-			-- 		StaticMethod = { icon = "󰠄 ", hl = "Function" },
-			-- 	},
-			-- },
 		})
 	end,
 }
