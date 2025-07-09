@@ -15,8 +15,12 @@ return {
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
 			"nvim-telescope/telescope.nvim",
+			"folke/lazydev.nvim",
 		},
 		config = function()
+			require("lazydev").setup({
+				library = { "nvim-dap-ui" },
+			})
 			require("dapui").setup({
 				controls = {
 					element = "repl",
