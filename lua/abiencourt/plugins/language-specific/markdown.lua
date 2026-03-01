@@ -20,9 +20,7 @@ return {
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = "markdown",
 		keys = { { "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "Preview Markdown" } },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
+		build = ":call mkdp#util#install()",
 		init = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,

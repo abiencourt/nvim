@@ -40,7 +40,7 @@ return {
 					"html",
 					"css",
 					"markdown",
-					"markdown_inline",
+					"markdown_inline", -- required by codecompanion.nvim
 					"bash",
 					"lua",
 					"vim",

@@ -15,3 +15,4 @@
 - [ ] Alt keymap does not work
 - [ ] Migrate dev-web-icon to mini.icon
 - [ ] Find how to open a commit from the blamed line
+- [ ] Do something with `abiencourt.env`
