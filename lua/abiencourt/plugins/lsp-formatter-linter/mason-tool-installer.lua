@@ -22,6 +22,7 @@ return {
 			"hyprls",
 			"pyright",
 			"terraform-ls",
+			"copilot-language-server",
 
 			-- Formatters
 			"stylua",
