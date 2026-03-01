@@ -200,6 +200,14 @@ return {
 						end,
 					},
 					{
+						icon = "🚑",
+						key = "C",
+						desc = "checkhealth",
+						action = function()
+							vim.cmd("checkhealth")
+						end,
+					},
+					{
 						icon = "💤",
 						key = "l",
 						desc = "Lazy",
